@@ -40,12 +40,14 @@ export default async function AdminUsersPage() {
                                 </td>
                                 <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{profile.full_name}</td>
                                 <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                                    <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                                    <div className="flex items-center gap-2">
+                                        <a href={`/dashboard/admin/users/${profile.id}/edit`} className="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                        <span className="text-gray-300">|</span>
                                         <UserRoleSelect action={updateUserRole} userId={profile.id} role={profile.role} />
-                                    </td>
-                                    <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                                        <DeleteUserButton onDelete={deleteUser} userId={profile.id} />
-                                    </td>
+                                    </div>
+                                </td>
+                                <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                                    <DeleteUserButton onDelete={deleteUser} userId={profile.id} />
                                 </td>
                             </tr>
                         ))}
